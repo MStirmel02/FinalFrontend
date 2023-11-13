@@ -1,0 +1,15 @@
+C:\Users\camom\source\repos\FinalFrontend\FinalLogicTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\camom\source\repos\FinalFrontend\FinalLogicTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\camom\source\repos\FinalFrontend\FinalLogicTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\camom\source\repos\FinalFrontend\FinalLogicTests\bin\Debug\Microsoft.TestPlatform.AdapterUtilities.dll
+C:\Users\camom\source\repos\FinalFrontend\FinalLogicTests\bin\Debug\FinalLogicTests.dll
+C:\Users\camom\source\repos\FinalFrontend\FinalLogicTests\bin\Debug\FinalLogicTests.pdb
+C:\Users\camom\source\repos\FinalFrontend\FinalLogicTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\camom\source\repos\FinalFrontend\FinalLogicTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\camom\source\repos\FinalFrontend\FinalLogicTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\camom\source\repos\FinalFrontend\FinalLogicTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\camom\source\repos\FinalFrontend\FinalLogicTests\obj\Debug\FinalLogicTests.csproj.AssemblyReference.cache
+C:\Users\camom\source\repos\FinalFrontend\FinalLogicTests\obj\Debug\FinalLogicTests.csproj.CoreCompileInputs.cache
+C:\Users\camom\source\repos\FinalFrontend\FinalLogicTests\obj\Debug\FinalLogicTests.csproj.CopyComplete
+C:\Users\camom\source\repos\FinalFrontend\FinalLogicTests\obj\Debug\FinalLogicTests.dll
+C:\Users\camom\source\repos\FinalFrontend\FinalLogicTests\obj\Debug\FinalLogicTests.pdb

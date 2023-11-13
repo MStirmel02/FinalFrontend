@@ -1,0 +1,6 @@
+C:\Users\camom\source\repos\FinalFrontend\FinalDataObjects\bin\Debug\FinalDataObjects.dll
+C:\Users\camom\source\repos\FinalFrontend\FinalDataObjects\bin\Debug\FinalDataObjects.pdb
+C:\Users\camom\source\repos\FinalFrontend\FinalDataObjects\obj\Debug\FinalDataObjects.csproj.AssemblyReference.cache
+C:\Users\camom\source\repos\FinalFrontend\FinalDataObjects\obj\Debug\FinalDataObjects.csproj.CoreCompileInputs.cache
+C:\Users\camom\source\repos\FinalFrontend\FinalDataObjects\obj\Debug\FinalDataObjects.dll
+C:\Users\camom\source\repos\FinalFrontend\FinalDataObjects\obj\Debug\FinalDataObjects.pdb
