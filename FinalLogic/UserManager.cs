@@ -43,6 +43,11 @@ namespace FinalLogic
                 if (_userAccess.ValidateUser(user))
                 {
                     user.Roles = _userAccess.GetUserRole(user);
+                    return user;
+                }
+                else
+                {
+                    return null;
                 }
 
             }
@@ -50,11 +55,14 @@ namespace FinalLogic
             {
 
                 throw new ApplicationException();
+                
             }
             
+        }
 
-
-            return user;    
+        public bool CreateUser(UserModel user)
+        {
+            return _userAccess.CreateUser(user);
         }
     }
 }
