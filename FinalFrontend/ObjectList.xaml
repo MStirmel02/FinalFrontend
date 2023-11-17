@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalFrontend"
         mc:Ignorable="d"
-        Title="ObjectList" Height="450" Width="800">
+        Title="ObjectList" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
@@ -36,7 +36,7 @@
             <MenuItem Header="Search :"></MenuItem>
             <TextBox Grid.Row="0" HorizontalAlignment="Right" Width="150"></TextBox>
         </Menu>
-        <DataGrid Grid.Row="1">
+        <DataGrid x:Name="datObjectList" ToolTip="To view an item, double click it." Grid.Row="1" SelectionMode="Single" IsReadOnly="True">
             
         </DataGrid>
     </Grid>
