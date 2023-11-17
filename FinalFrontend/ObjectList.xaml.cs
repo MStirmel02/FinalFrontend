@@ -1,9 +1,6 @@
-﻿using FinalDataObjects;
-using FinalLogic;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,17 +19,9 @@ namespace FinalFrontend
     /// </summary>
     public partial class ObjectList : Window
     {
-
-        private UserManager _userManager;
-        private ObjectManager _objectManager;
-        private UserModel _userModel = new UserModel();
         public ObjectList()
         {
             InitializeComponent();
-        }
-        public ObjectList(UserModel model)
-        {
-            _userModel = model;
         }
     }
 }

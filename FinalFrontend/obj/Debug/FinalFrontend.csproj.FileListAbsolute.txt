@@ -44,3 +44,5 @@ C:\Users\camom\source\repos\FinalFrontend\FinalFrontend\bin\Debug\System.Buffers
 C:\Users\camom\source\repos\FinalFrontend\FinalFrontend\obj\Debug\FinalFrontend.csproj.CopyComplete
 C:\Users\camom\source\repos\FinalFrontend\FinalFrontend\bin\Debug\Newtonsoft.Json.dll
 C:\Users\camom\source\repos\FinalFrontend\FinalFrontend\bin\Debug\Newtonsoft.Json.xml
+C:\Users\camom\source\repos\FinalFrontend\FinalFrontend\obj\Debug\ObjectList.g.cs
+C:\Users\camom\source\repos\FinalFrontend\FinalFrontend\obj\Debug\ObjectList.baml

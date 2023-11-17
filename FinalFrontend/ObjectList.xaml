@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Title="ObjectList" Height="450" Width="800">
     <Grid>
-        <Menu Grid.Row="0" Padding="20px, 0px">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Menu>
             <MenuItem x:Name="mnuFile" Header="File">
                 <MenuItem x:Name="mnuExit" Header="Exit"/>
             </MenuItem>
@@ -27,8 +31,13 @@
             <MenuItem x:Name="mnuLogout" Header="Log out" Visibility="Hidden">
                 <Button x:Name="btnLogout" Content="Log out"/>
             </MenuItem>
-            
-            
         </Menu>
+        <Menu HorizontalAlignment="Right" Grid.Row="0">
+            <MenuItem Header="Search :"></MenuItem>
+            <TextBox Grid.Row="0" HorizontalAlignment="Right" Width="150"></TextBox>
+        </Menu>
+        <DataGrid Grid.Row="1">
+            
+        </DataGrid>
     </Grid>
 </Window>
