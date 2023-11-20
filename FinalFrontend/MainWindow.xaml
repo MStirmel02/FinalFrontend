@@ -84,9 +84,9 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <TextBox Grid.Row="0" IsReadOnly="True" FontSize="18" TextWrapping="WrapWithOverflow" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" >Click here to view the full list of objects.</TextBox>
-                <TextBox Grid.Row="1" IsReadOnly="True" FontSize="18" TextWrapping="WrapWithOverflow" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" >Want to contribute? Request an object here.</TextBox>
-                <TextBox Grid.Row="2" IsReadOnly="True" FontSize="18" TextWrapping="WrapWithOverflow" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" >View all types of objects here.</TextBox>
+                <Button x:Name="ViewObjList" Grid.Row="0" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="ViewObjList_Click" >View the full list of objects.</Button>
+                <Button x:Name="RequestObj" Grid.Row="1" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" >Request an object</Button>
+                <Button x:Name="ViewObjTypes" Grid.Row="2" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" >View Object Types</Button>
 
             </Grid>
 

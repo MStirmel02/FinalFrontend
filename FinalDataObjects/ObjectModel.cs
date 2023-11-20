@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,10 +10,10 @@ namespace FinalDataObjects
 {
     public class ObjectModel
     {
-        public string ObjectID { get; set; }
+	    public string ObjectID { get; set; }
         public string ObjectInfoID { get; set; }
         public DateTime DateSubmitted { get; set; }
-		public string UserSubmitted {  get; set; }
+        public string UserSubmitted {  get; set; }
 		public string Image {  get; set; }
 		
     }

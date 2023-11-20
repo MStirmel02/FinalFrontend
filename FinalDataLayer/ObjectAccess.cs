@@ -9,7 +9,7 @@ using RestSharp;
 
 namespace FinalDataLayer
 {
-    public class ObjectAccess
+    public class ObjectAccess : IObjectAccess
     {
         RestClient client = new RestClient();
 
@@ -28,10 +28,9 @@ namespace FinalDataLayer
                 objects = JsonConvert.DeserializeObject<List<ObjectModel>>(response.Content);
                 return objects;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw ex;
             }
         }
 

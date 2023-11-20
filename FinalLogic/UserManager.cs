@@ -11,10 +11,14 @@ namespace FinalLogic
 {
     public class UserManager : IUserManager
     {
-        UserAccess _userAccess = new UserAccess();
-        public UserManager() 
+        IUserAccess _userAccess;
+        public UserManager()
         {
             _userAccess = new UserAccess();
+        }
+        public UserManager(IUserAccess userAccess) 
+        {
+            _userAccess = userAccess;
         }
 
         public string HashSha256(string source)

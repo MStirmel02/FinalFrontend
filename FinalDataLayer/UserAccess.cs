@@ -11,7 +11,7 @@ using RestSharp;
 
 namespace FinalDataLayer
 {
-    public class UserAccess
+    public class UserAccess : IUserAccess
     {
         RestClient client = new RestClient();
 

@@ -76,6 +76,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IObjectAccess.cs" />
+    <Compile Include="IUserAccess.cs" />
+    <Compile Include="ObjectAccess.cs" />
     <Compile Include="UserAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

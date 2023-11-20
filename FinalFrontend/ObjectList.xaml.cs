@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ObjectManager = FinalLogic.ObjectManager;
 
 namespace FinalFrontend
 {
@@ -28,16 +29,23 @@ namespace FinalFrontend
 
         public ObjectList()
         {
+            _userManager = new UserManager();
+            _objectManager = new ObjectManager();
+
             InitializeComponent();
         }
         public ObjectList(UserModel userModel)
         {
-            InitializeComponent();
+            _userManager = new UserManager();
+            _objectManager = new ObjectManager();
             _userModel = userModel;
+
+            InitializeComponent();
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            _userManager = new UserManager();
+            UpdateObjectList();
+
             if (_userModel.Equals(new UserModel()))
             {
                 ChangeMenuForLogin();
@@ -65,9 +73,15 @@ namespace FinalFrontend
             mnuLogout.Visibility = Visibility.Collapsed;
         }
 
-        private void GetObjects()
+        private void UpdateObjectList()
         {
 
+            datObjectList.ItemsSource = _objectManager.GetObjects();
+            datObjectList.Columns.RemoveAt(4);
+            datObjectList.Columns[0].Header = "Object Name";
+            datObjectList.Columns[1].Header = "Object Type";
+            datObjectList.Columns[2].Header = "Date Submitted";
+            datObjectList.Columns[3].Header = "User Who Submitted";
         }
     }
 }
