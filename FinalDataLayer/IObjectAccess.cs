@@ -11,5 +11,9 @@ namespace FinalDataLayer
     {
 
         List<ObjectModel> GetObjectList();
+
+        FullObjectModel GetObjectById(string id);
+
+        bool EditObjectById(FullObjectModel objModel, string userId, string action);
     }
 }

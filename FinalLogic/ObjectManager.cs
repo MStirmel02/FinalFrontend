@@ -48,14 +48,27 @@ namespace FinalLogic
             throw new NotImplementedException();
         }
 
-        public bool EditObject(FullObjectModel model)
+        public bool EditObject(FullObjectModel model, string userId, string action)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _objectAccess.EditObjectById(model, userId, action);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public FullObjectModel GetObjectById(string id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _objectAccess.GetObjectById(id);
+            } catch (Exception)
+            {
+                return new FullObjectModel();
+            }
         }
 
     }

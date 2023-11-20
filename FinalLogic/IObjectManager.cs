@@ -13,7 +13,7 @@ namespace FinalLogic
 
         FullObjectModel GetObjectById(string id);
 
-        bool EditObject(FullObjectModel model);
+        bool EditObject(FullObjectModel model, string userId, string action);
 
         bool DeactivateObject (string id);
 
