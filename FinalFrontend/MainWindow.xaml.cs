@@ -118,6 +118,7 @@ namespace FinalFrontend
             }
 
             string user = tbxCreateUsername.Text;
+            //In the interest of security, the password is hashed before it is given to a variable.
             string pwd = _userManager.HashSha256(pbxCreatePassword.Password);
 
             UserModel userModel = new UserModel()

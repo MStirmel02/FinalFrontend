@@ -10,6 +10,8 @@ namespace FinalLogic
 {
     public class ObjectManager : IObjectManager
     {
+
+
         IObjectAccess _objectAccess;
         public ObjectManager() 
         {
@@ -31,21 +33,6 @@ namespace FinalLogic
             {
                 return new List<ObjectModel>();
             }
-        }
-
-        public bool AcceptObject(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool DeactivateObject(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool DeclineObject(string id)
-        {
-            throw new NotImplementedException();
         }
 
         public bool EditObject(FullObjectModel model, string userId, string action)

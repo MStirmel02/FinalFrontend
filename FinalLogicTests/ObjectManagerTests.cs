@@ -102,6 +102,43 @@ namespace FinalLogicTests
             Assert.AreNotEqual(fullObjectModel, returnModel);
         }
 
+        [TestMethod]
+        public void EditObjectValidInput()
+        {
+            FullObjectModel fullObjectModel = new FullObjectModel();
+
+
+            Mock<IObjectAccess> mockObjectAccess = new Mock<IObjectAccess>();
+
+            mockObjectAccess.Setup(t => t.EditObjectById(It.IsAny<FullObjectModel>(), It.IsAny<string>(), It.IsAny<string>())).Returns(true);
+
+            ObjectManager mockObjectManager = new ObjectManager(mockObjectAccess.Object);
+
+            //Act 
+            var result = mockObjectManager.EditObject(fullObjectModel, "testuser", "testaction");
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void EditObjectInvalidInput()
+        {
+            FullObjectModel fullObjectModel = new FullObjectModel();
+
+
+            Mock<IObjectAccess> mockObjectAccess = new Mock<IObjectAccess>();
+
+            mockObjectAccess.Setup(t => t.EditObjectById(It.IsAny<FullObjectModel>(), It.IsAny<string>(), It.IsAny<string>())).Returns(false);
+
+            ObjectManager mockObjectManager = new ObjectManager(mockObjectAccess.Object);
+
+            //Act 
+            var result = mockObjectManager.EditObject(fullObjectModel, "testuser","testaction");
+
+            //Assert
+            Assert.AreEqual(false, result);
+        }
         /*
          * 
          *             //Arrange

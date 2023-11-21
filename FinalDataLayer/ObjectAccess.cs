@@ -24,7 +24,6 @@ namespace FinalDataLayer
 
             try
             {
-
                 var response = client.Get(request);
                 objects = JsonConvert.DeserializeObject<List<ObjectModel>>(response.Content);
                 return objects;

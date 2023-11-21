@@ -15,11 +15,5 @@ namespace FinalLogic
 
         bool EditObject(FullObjectModel model, string userId, string action);
 
-        bool DeactivateObject (string id);
-
-        bool AcceptObject (string id);
-
-        bool DeclineObject (string id);
-
     }
 }
