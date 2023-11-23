@@ -158,10 +158,5 @@ namespace FinalFrontend
             MessageBox.Show("Test");
         }
 
-        private void ViewObjList_Click(object sender, RoutedEventArgs e)
-        {
-            ObjectList objectList = new ObjectList(_userModel);
-            var dialog = objectList.ShowDialog();
-        }
     }
 }

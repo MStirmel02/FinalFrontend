@@ -70,6 +70,10 @@ namespace FinalLogic
             try
             {
                 RestResponse response = _commentAccess.GetCommentsByObjectId(ObjectId);
+                if (response.Content == null)
+                {
+                    return new List<CommentModel>();
+                }
                 return JsonSerializer.Deserialize<List<CommentModel>>(response.Content);
             }
             catch (Exception ex)

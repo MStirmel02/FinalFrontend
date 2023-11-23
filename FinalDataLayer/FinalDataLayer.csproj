@@ -76,6 +76,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommentAccess.cs" />
+    <Compile Include="ICommentAccess.cs" />
     <Compile Include="IObjectAccess.cs" />
     <Compile Include="IUserAccess.cs" />
     <Compile Include="ObjectAccess.cs" />

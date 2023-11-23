@@ -47,3 +47,4 @@ C:\Users\camom\source\repos\FinalFrontend\FinalLogicTests\bin\Debug\System.Value
 C:\Users\camom\source\repos\FinalFrontend\FinalLogicTests\bin\Debug\System.Text.Encodings.Web.xml
 C:\Users\camom\source\repos\FinalFrontend\FinalLogicTests\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\camom\source\repos\FinalFrontend\FinalLogicTests\bin\Debug\System.Buffers.xml
+C:\Users\camom\source\repos\FinalFrontend\FinalLogicTests\bin\Debug\FinalLogicTests.dll.config

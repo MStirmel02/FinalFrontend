@@ -139,36 +139,6 @@ namespace FinalLogicTests
             //Assert
             Assert.AreEqual(false, result);
         }
-        /*
-         * 
-         *             //Arrange
-
-                UserModel testModel = new UserModel()
-                {
-                    UserId = "test",
-                    PasswordHash = "test",
-                    Roles = new List<string>()
-                };
-                Mock<IUserAccess> mockUserAccess = new Mock<IUserAccess>();
-
-                mockUserAccess.Setup(t => t.ValidateUser(It.IsAny<UserModel>())).Returns(true);
-                mockUserAccess.Setup(t => t.GetUserRole(It.IsAny<UserModel>())).Returns(new List<string>());
-
-                UserManager mockUserManager = new UserManager(mockUserAccess.Object);
-
-                //Act
-                var result = mockUserManager.LoginUser(testModel);
-
-                //Assert
-                Assert.AreEqual(result, testModel);
-         * 
-         * 
-         * 
-         * 
-         * 
-         * 
-         */
-
 
     }
 }

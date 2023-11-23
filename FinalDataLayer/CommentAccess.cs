@@ -11,7 +11,7 @@ namespace FinalDataLayer
 {
     public class CommentAccess : ICommentAccess
     {
-        RestClient _client;
+        RestClient _client = new RestClient();
 
         public RestResponse DeactivateComment(int commentId)
         {
