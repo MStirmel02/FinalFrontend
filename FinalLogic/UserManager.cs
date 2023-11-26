@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace FinalLogic
@@ -67,6 +69,29 @@ namespace FinalLogic
         public bool CreateUser(UserModel user)
         {
             return _userAccess.CreateUser(user);
+        }
+
+        public bool AddRole(string userId, string roleId, string editUser)
+        {
+            return _userAccess.AddUserRole(userId, roleId, editUser);
+        }
+
+        public bool RemoveRole(string userId, string roleId, string editUser)
+        {
+            return _userAccess.RemoveUserRole(userId, roleId, editUser);
+        }
+
+        public List<string> GetUsers()
+        {
+            try
+            {
+                var response = JsonSerializer.Deserialize<List<string>>(_userAccess.GetUsers().Content);
+                return response;
+            }
+            catch (Exception)
+            {
+                return new List<string>();
+            }
         }
     }
 }

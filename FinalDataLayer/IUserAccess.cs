@@ -16,8 +16,13 @@ namespace FinalDataLayer
 
         List<string> GetUserRole(UserModel user);
         
-
         bool CreateUser(UserModel user);
+
+        bool AddUserRole(string userId, string roleId, string editUser);
+
+        bool RemoveUserRole(string userId, string roleId, string editUser);
+
+        RestResponse GetUsers();
         
     }
 }

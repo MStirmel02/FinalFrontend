@@ -14,5 +14,11 @@ namespace FinalLogic
 
         UserModel LoginUser(UserModel user);
 
+        bool AddRole(string userId, string roleId, string editUser);
+
+        bool RemoveRole(string userId, string roleId, string editUser);
+
+        List<string> GetUsers();
+
     }
 }

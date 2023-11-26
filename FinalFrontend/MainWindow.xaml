@@ -31,84 +31,41 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="20"/>
-                <RowDefinition/>
-                <RowDefinition Height="200"/>
+                <RowDefinition Height="80"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-
-
-            <TextBox IsReadOnly="True" Grid.Row="1" Grid.Column="1" FontSize="18" Background="Transparent" HorizontalContentAlignment="Center" Margin="0 10 0 0">A database for stellar objects</TextBox>
-
-
-            <Grid Grid.Row="2" Grid.Column="2" Margin="10">
+            <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="100"></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Image x:Name="imgRandomObject" Grid.Column="0"></Image>
-                    <TextBox IsReadOnly="True" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="WrapWithOverflow" FontSize="18" MouseDoubleClick="TextBox_MouseDoubleClick" >View a randomly selected object</TextBox>
-                </Grid>
-
-                <TextBox IsReadOnly="True" x:Name="tbxRandomName" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" MouseDoubleClick="TextBox_MouseDoubleClick">ObjectName</TextBox>
-                <TextBox IsReadOnly="True" x:Name="tbxRandomType" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" MouseDoubleClick="TextBox_MouseDoubleClick">ObjectType</TextBox>
-            </Grid>
-
-
-            <Grid Grid.Row="2" Grid.Column="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
 
-                <TextBox IsReadOnly="True" Grid.Row="0" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Fun facts</TextBox>
-                <Label x:Name="lblFunFacts" Grid.Row="1">Placeholder</Label>
+                <Label Grid.Column="1" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Fun facts</Label>
+                <TextBlock Grid.Row="1" Grid.Column="1">example text</TextBlock>
                 
             </Grid>
-            
-            
-            <Grid Grid.Row="2" Margin="10">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
+            <StackPanel x:Name="splMain" Grid.Row="2">
+                <TabControl x:Name="tclMain" Height="1000">
+                    <TabItem x:Name="tbmMain" Header="Main Page">
+                        <Label>1111</Label>
+                    </TabItem>
+                    <TabItem x:Name="tbmObjectList" Header="Object List">
 
-                <Button x:Name="ViewObjList" Grid.Row="0" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="ViewObjList_Click" >View the full list of objects.</Button>
-                <Button x:Name="RequestObj" Grid.Row="1" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" >Request an object</Button>
-                <Button x:Name="ViewObjTypes" Grid.Row="2" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" >View Object Types</Button>
+                    </TabItem>
+                    <TabItem x:Name="tbmReview" Header="Manage Requests">
 
-            </Grid>
+                    </TabItem>
+                    <TabItem x:Name="tbmAdmin" Header="Manage Users">
 
-            <Grid Grid.Row="3" Margin="10">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
+                    </TabItem>
+                </TabControl>
+            </StackPanel>
 
-                <TextBox x:Name="tbxManager" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18">Manager panel</TextBox>
-                <Button x:Name="btnManager" FontSize="18" Grid.Row="1">View requested objects here</Button>
-            </Grid>
 
-            <Grid Grid.Row="3" Grid.Column="2" Margin="10">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-
-                <TextBox x:Name="tbxAdmin" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18">Admin panel</TextBox>
-                <Button x:Name="btnAdmin" FontSize="18" Grid.Row="1">Manage users here</Button>
-            </Grid>
 
         </Grid>
     </Grid>
