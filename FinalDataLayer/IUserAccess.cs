@@ -23,6 +23,8 @@ namespace FinalDataLayer
         bool RemoveUserRole(string userId, string roleId, string editUser);
 
         RestResponse GetUsers();
+
+        RestResponse GetFacts();
         
     }
 }

@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,9 +12,11 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
 using FinalDataObjects;
 using FinalLogic;
 
@@ -22,30 +27,49 @@ namespace FinalFrontend
     /// </summary>
     public partial class MainWindow : Window
     {
-        private UserManager _userManager;
+        private UserManager _userManager = new UserManager();
+        private ObjectManager _objectManager = new ObjectManager();
         private UserModel _userModel = new UserModel();
+
+        private bool _isInit = false;
+
+        private List<string> _userList;
+        private List<string> _userListQueried;
+
+        private List<ObjectModel> _objectList;
+        private List<ObjectModel> _objectListQueried;
+
+        private List<ObjectModel> _requestList;
+        private List<ObjectModel> _requestListQueried;
+
+        private List<string> _funFacts;
 
         public MainWindow()
         {
             InitializeComponent();
-        }
-        public MainWindow(UserModel model)
-        {
-            _userModel = model;
-            InitializeComponent();
+            _isInit = true;
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            _userManager = new UserManager();
-            if (_userModel.Equals(new UserModel()))
-            {
-                ChangeMenuForLogin();
-            } 
-            else
-            {
-                ChangeMenuForLogOut();
-            }
+            _funFacts = _userManager.GetFacts();
+
+            _userList = _userManager.GetUsers();
+            _userListQueried = _userList;
+
+            _objectList = _objectManager.GetObjects();
+            _objectListQueried = _objectList;
+
+            _requestList = _objectManager.GetRequests();
+            _requestListQueried = _requestList;
+
+            FillObjectList();
+            FillRequestList();
+            FillUserList();
+
+            Facts();
+
         }
 
 
@@ -77,7 +101,7 @@ namespace FinalFrontend
                 MessageBox.Show("Incorrect username or password.", "Incorrect information", MessageBoxButton.OK, MessageBoxImage.Warning);
                 ChangeMenuForLogOut();
             }
-            
+
 
 
         }
@@ -95,7 +119,7 @@ namespace FinalFrontend
         private void ChangeMenuForLogOut()
         {
             _userModel = new UserModel();
-            mnuAccount.Visibility= Visibility.Visible;
+            mnuAccount.Visibility = Visibility.Visible;
             mnuCreateAccount.Visibility = Visibility.Visible;
             mnuLogout.Visibility = Visibility.Collapsed;
         }
@@ -108,7 +132,7 @@ namespace FinalFrontend
 
         private void btnCreateAccount_Click(object sender, RoutedEventArgs e)
         {
-            if ( tbxCreateUsername == null)
+            if (tbxCreateUsername == null)
             {
                 MessageBox.Show("Please input a username");
             }
@@ -138,7 +162,7 @@ namespace FinalFrontend
                 if (!model.Equals(null)) {
                     _userModel = model;
                     ChangeMenuForLogin();
-                } 
+                }
                 else
                 {
                     MessageBox.Show("Account login unsuccessful.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -149,7 +173,7 @@ namespace FinalFrontend
                 MessageBox.Show("User already exists.", "Duplicate entry", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            
+
         }
 
 
@@ -158,5 +182,83 @@ namespace FinalFrontend
             MessageBox.Show("Test");
         }
 
+        private void FillObjectList()
+        {
+            datObjectList.ItemsSource = _objectListQueried;
+        }
+
+        private void FillRequestList()
+        {
+            datRequestList.ItemsSource = _requestListQueried;
+        }
+
+        private void FillUserList()
+        {
+            lbxUserList.ItemsSource = _userListQueried;
+        }
+
+        private void tbxSearch_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (tbxSearch.Text == "Search")
+            {
+                tbxSearch.Text = string.Empty;
+            }
+        }
+
+        private void tbxSearch_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (tbxSearch.Text == string.Empty)
+            {
+                tbxSearch.Text = "Search";
+            }
+        }
+
+        private void tbxSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!_isInit)
+            {
+                return;
+            }
+
+            if (tbxSearch.Text == "Search" || tbxSearch.Text == string.Empty)
+            {
+                _userListQueried = _userList;
+                _objectListQueried = _objectList;
+                _requestListQueried = _requestList;
+                FillRequestList();
+                FillObjectList();
+                FillUserList();
+                return;
+            }
+
+            if (tbmAdmin.Visibility == Visibility.Visible)
+            {
+                _userListQueried = _userList.Where(file => (file.ToUpperInvariant().Contains(tbxSearch.Text.ToUpperInvariant()))).ToList<string>();
+                FillUserList();
+            }
+
+            if (tbmReview.Visibility == Visibility.Visible)
+            {
+                _requestListQueried = _requestList.Where(file => (file.ObjectID.ToUpperInvariant().Contains(tbxSearch.Text.ToUpperInvariant()))).ToList<ObjectModel>();
+                FillRequestList();
+            }
+
+            if (tbmObject.Visibility == Visibility.Visible)
+            {
+                _objectListQueried = _objectList.Where(file => (file.ObjectID.ToUpperInvariant().Contains(tbxSearch.Text.ToUpperInvariant()))).ToList<ObjectModel>();
+                FillObjectList();
+            }
+
+
+        }
+
+        private void Facts()
+        {
+            long num = DateTimeOffset.Now.ToUnixTimeSeconds();
+
+            int index = (int) num % _funFacts.Count();
+            
+            tbkFunFacts.Text = _funFacts[index];
+        }
     }
 }

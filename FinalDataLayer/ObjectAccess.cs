@@ -34,6 +34,25 @@ namespace FinalDataLayer
             }
         }
 
+        public List<ObjectModel> GetRequestList()
+        {
+            List<ObjectModel> objects = new List<ObjectModel>();
+
+
+            RestRequest request = new RestRequest("https://localhost:44333/Object/Requests");
+
+            try
+            {
+                var response = client.Get(request);
+                objects = JsonConvert.DeserializeObject<List<ObjectModel>>(response.Content);
+                return objects;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public FullObjectModel GetObjectById(string id)
         {
             FullObjectModel objectModel = new FullObjectModel();

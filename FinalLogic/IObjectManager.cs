@@ -9,7 +9,9 @@ namespace FinalLogic
 {
     public interface IObjectManager
     {
-        List<ObjectModel> GetObjects(); 
+        List<ObjectModel> GetObjects();
+
+        List<ObjectModel> GetRequests();
 
         FullObjectModel GetObjectById(string id);
 

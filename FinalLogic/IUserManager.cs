@@ -20,5 +20,7 @@ namespace FinalLogic
 
         List<string> GetUsers();
 
+        List<string> GetFacts();
+
     }
 }

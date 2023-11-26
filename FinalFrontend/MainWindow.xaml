@@ -45,24 +45,24 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Column="1" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Fun facts</Label>
-                <TextBlock Grid.Row="1" Grid.Column="1">example text</TextBlock>
-                
+                <TextBlock x:Name="tbkFunFacts" Grid.Row="1" Grid.Column="1">example text</TextBlock>
+
+                <TextBox x:Name="tbxSearch" Grid.Row="1" Grid.Column="0" Width="150" Height="30" VerticalContentAlignment="Center" HorizontalAlignment="Left" GotFocus="tbxSearch_GotFocus" LostFocus="tbxSearch_LostFocus" TextChanged="tbxSearch_TextChanged">Search</TextBox>
             </Grid>
             <StackPanel x:Name="splMain" Grid.Row="2">
                 <TabControl x:Name="tclMain" Height="1000">
                     <TabItem x:Name="tbmMain" Header="Main Page">
-                        <Label>1111</Label>
                     </TabItem>
-                    <TabItem x:Name="tbmObjectList" Header="Object List">
-
+                    <TabItem x:Name="tbmObject" Header="Object List">
+                        <DataGrid x:Name="datObjectList" CanUserSortColumns="True"/>
                     </TabItem>
                     <TabItem x:Name="tbmReview" Header="Manage Requests">
-
+                        <DataGrid x:Name="datRequestList" CanUserSortColumns="True"/>
                     </TabItem>
                     <TabItem x:Name="tbmAdmin" Header="Manage Users">
-
+                        <ListBox x:Name="lbxUserList"></ListBox>
                     </TabItem>
-                </TabControl>
+                </TabControl> 
             </StackPanel>
 
 

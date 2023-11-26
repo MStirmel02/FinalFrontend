@@ -35,6 +35,18 @@ namespace FinalLogic
             }
         }
 
+        public List<ObjectModel> GetRequests()
+        {
+            try
+            {
+                return _objectAccess.GetRequestList();
+            }
+            catch (Exception)
+            {
+                return new List<ObjectModel>();
+            }
+        }
+
         public bool EditObject(FullObjectModel model, string userId, string action)
         {
             try

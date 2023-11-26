@@ -123,5 +123,21 @@ namespace FinalDataLayer
                 return new RestResponse();
             }
         }
+        
+        public RestResponse GetFacts()
+        {
+            RestRequest request = new RestRequest("https://localhost:44333/User/Facts");
+
+            var response = client.Get(request);
+
+            try
+            {
+                return response;
+            }
+            catch (Exception)
+            {
+                return new RestResponse();
+            }
+        }
     }
 }

@@ -93,5 +93,18 @@ namespace FinalLogic
                 return new List<string>();
             }
         }
+
+        public List<string> GetFacts()
+        {
+            try
+            {
+                var response = JsonSerializer.Deserialize<List<string>>(_userAccess.GetFacts().Content);
+                return response;
+            }
+            catch (Exception)
+            {
+                return new List<string>();
+            }
+        }
     }
 }
