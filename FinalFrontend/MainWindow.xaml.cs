@@ -172,14 +172,6 @@ namespace FinalFrontend
             {
                 MessageBox.Show("User already exists.", "Duplicate entry", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-
-        }
-
-
-        private void TextBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show("Test");
         }
 
         private void FillObjectList()
@@ -219,7 +211,6 @@ namespace FinalFrontend
             {
                 return;
             }
-
             if (tbxSearch.Text == "Search" || tbxSearch.Text == string.Empty)
             {
                 _userListQueried = _userList;
@@ -230,7 +221,7 @@ namespace FinalFrontend
                 FillUserList();
                 return;
             }
-
+            // This doesn't actually work as I thought it would. Oops
             if (tbmAdmin.Visibility == Visibility.Visible)
             {
                 _userListQueried = _userList.Where(file => (file.ToUpperInvariant().Contains(tbxSearch.Text.ToUpperInvariant()))).ToList<string>();
@@ -254,6 +245,7 @@ namespace FinalFrontend
 
         private void Facts()
         {
+            //Take unix time and use the remainder of it divided by the count of facts in our list to get a pseudorandom index to show one specific fact.
             long num = DateTimeOffset.Now.ToUnixTimeSeconds();
 
             int index = (int) num % _funFacts.Count();
