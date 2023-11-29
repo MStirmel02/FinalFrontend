@@ -54,7 +54,7 @@
                     <TabItem x:Name="tbmMain" Header="Main Page">
                     </TabItem>
                     <TabItem x:Name="tbmObject" Header="Object List">
-                        <DataGrid x:Name="datObjectList" CanUserSortColumns="True"/>
+                        <DataGrid x:Name="datObjectList" CanUserSortColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" MouseDoubleClick="datObjectList_MouseDoubleClick"/>
                     </TabItem>
                     <TabItem x:Name="tbmReview" Header="Manage Requests">
                         <DataGrid x:Name="datRequestList" CanUserSortColumns="True"/>

@@ -252,5 +252,15 @@ namespace FinalFrontend
             
             tbkFunFacts.Text = _funFacts[index];
         }
+
+        private void datObjectList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if(datObjectList.SelectedItem != null)
+            {
+                var obj = datObjectList.SelectedItem as ObjectModel;
+                var objWindow = new ObjectInfo(obj.ObjectID, _userModel);
+                objWindow.ShowDialog();
+            }
+        }
     }
 }

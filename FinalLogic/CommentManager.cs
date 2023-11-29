@@ -1,5 +1,6 @@
 ﻿using FinalDataLayer;
 using FinalDataObjects;
+using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,11 @@ namespace FinalLogic
 {
     public class CommentManager :ICommentManager
     {
-        ICommentAccess _commentAccess;
+        ICommentAccess _commentAccess = new CommentAccess();
+        public CommentManager()
+        {
+
+        }
         public CommentManager(ICommentAccess commentAccess) 
         {
             _commentAccess = commentAccess;
@@ -74,7 +79,8 @@ namespace FinalLogic
                 {
                     return new List<CommentModel>();
                 }
-                return JsonSerializer.Deserialize<List<CommentModel>>(response.Content);
+                List<CommentModel> comments = JsonConvert.DeserializeObject<List<CommentModel>>(response.Content);
+                return comments;
             }
             catch (Exception ex)
             {
