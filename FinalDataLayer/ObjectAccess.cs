@@ -74,16 +74,17 @@ namespace FinalDataLayer
             }
         }
 
-        public bool EditObjectById(FullObjectModel objModel, string userId, string action)
+        public bool EditObjectById(FullObjectModel obj, string userId, string action)
         {
             RestRequest request = new RestRequest("https://localhost:44333/Object/");
+            
+            request.AddBody(obj);
             request.AddQueryParameter("userId", userId);
             request.AddQueryParameter("action", action);
-            request.AddBody(objModel);
 
             try
             {
-                var response = client.Put(request);
+                var response = client.Patch(request);
 
                 if (response.Content == "true")
                 {
@@ -98,6 +99,25 @@ namespace FinalDataLayer
             {
 
                 throw ex;
+            }
+        }
+
+        public List<string> GetObjectTypes()
+        {
+            RestRequest request = new RestRequest("https://localhost:44333/Object/ObjectTypes");
+
+            List<string> typeList = new List<string>();
+            try
+            {
+                var response = client.Get(request);
+
+                typeList = JsonConvert.DeserializeObject<List<string>>(response.Content);
+                return typeList;
+
+            }
+            catch (Exception)
+            {
+                return new List<string>();
             }
         }
     }

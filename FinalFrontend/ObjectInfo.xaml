@@ -13,7 +13,19 @@
         </Grid.RowDefinitions>
         <!-- put comment grid in this grid-->
 
-        <DataGrid x:Name="datCommentList" Grid.Row="1" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserSortColumns="True" HeadersVisibility="None">
+        <DataGrid x:Name="datCommentList" Grid.Row="1" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserSortColumns="True" HeadersVisibility="None"
+                  AutoGenerateColumns="False" MouseDoubleClick="datCommentList_MouseDoubleClick">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding UserId}">
+
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding TimePosted}">
+
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Description}" Width="500">
+
+                </DataGridTextColumn>
+            </DataGrid.Columns>
             
         </DataGrid>
         
@@ -43,7 +55,8 @@
                 <Image x:Name="imgObjectImage" Grid.Row="1" Margin="20 0 20 0"/>
 
                 <TextBox x:Name="lblObjectType" IsReadOnly="True" BorderThickness="0" Margin="13 0 0 0" Grid.Row="2" FontSize="11" ToolTip="The Type of Object">Object Type</TextBox>
-
+                <ComboBox x:Name="cbxObjectType" Margin="13 0 0 0" Grid.Row="2" BorderThickness="0" ToolTip="The Type of Object" Visibility="Collapsed">Object Type</ComboBox>
+                
                 <TextBox x:Name="lblRightAscension" IsReadOnly="True" BorderThickness="0" Margin="13 0 0 0" Grid.Row="3" FontSize="11" ToolTip="The Right Ascension"> Right Ascension</TextBox>
 
                 <TextBox x:Name="lblDeclination" IsReadOnly="True"  BorderThickness="0" Margin="13 0 0 0" Grid.Row="4" FontSize="11" ToolTip="The Declination">Declination</TextBox>
@@ -66,9 +79,9 @@
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock x:Name="tbxObjectDescription" Grid.Row="0" Grid.Column="0" Margin="25 10 25 0" TextWrapping="WrapWithOverflow">
+                <TextBox x:Name="tbxObjectDescription" Grid.Row="0" Grid.Column="0" Margin="25 10 25 0" TextWrapping="WrapWithOverflow" IsReadOnly="True">
                 Preliminary test information Preliminary test information Preliminary test information 
-             Preliminary test information Preliminary test information Preliminary test information Preliminary test information Preliminary test information</TextBlock>
+             Preliminary test information Preliminary test information Preliminary test information Preliminary test information Preliminary test information</TextBox>
 
                 <!-- Buttons -->
                 <Grid Grid.Row="1">
@@ -80,13 +93,13 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <Button x:Name="btnAddComment" Grid.Column="0" Margin="10 10 10 10">Add Comment</Button>
+                    <Button x:Name="btnEditObject" Grid.Column="4" Margin="10 10 10 10" Click="btnEditObject_Click">Edit Object</Button>
 
-                    <Button x:Name="btnEditComment" Grid.Column="1" Margin="10 10 10 10">Edit Comment</Button>
+                    <Button x:Name="btnSaveEdit" Grid.Column="4" Margin="10 10 10 10" Visibility="Collapsed" Click="btnSaveEdit_Click">Save</Button>
 
-                    <Button x:Name="btnDeleteComment" Grid.Column="2" Margin="10 10 10 10">Delete Comment</Button>
+                    <Button x:Name="btnCancelEdit" Grid.Column="3" Margin="10 10 10 10" Visibility="Collapsed" Click="btnCancelEdit_Click">Cancel Edits</Button>
 
-                    <Button x:Name="btnEditObject" Grid.Column="4" Margin="10 10 10 10">Edit Object</Button>
+                    <Button x:Name="btnPostComment" Grid.Column="0" Margin="10 10 10 10" Click="btnPostComment_Click">Post Comment</Button>
                 </Grid>
                 
             </Grid>

@@ -46,3 +46,5 @@ C:\Users\camom\source\repos\FinalFrontend\FinalFrontend\bin\Debug\Newtonsoft.Jso
 C:\Users\camom\source\repos\FinalFrontend\FinalFrontend\bin\Debug\Newtonsoft.Json.xml
 C:\Users\camom\source\repos\FinalFrontend\FinalFrontend\obj\Debug\ObjectInfo.g.cs
 C:\Users\camom\source\repos\FinalFrontend\FinalFrontend\obj\Debug\ObjectInfo.baml
+C:\Users\camom\source\repos\FinalFrontend\FinalFrontend\obj\Debug\CommentWindow.g.cs
+C:\Users\camom\source\repos\FinalFrontend\FinalFrontend\obj\Debug\CommentWindow.baml

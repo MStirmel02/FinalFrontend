@@ -17,5 +17,7 @@ namespace FinalDataLayer
         FullObjectModel GetObjectById(string id);
 
         bool EditObjectById(FullObjectModel objModel, string userId, string action);
+
+        List<string> GetObjectTypes();
     }
 }

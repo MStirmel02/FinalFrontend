@@ -70,5 +70,10 @@ namespace FinalLogic
             }
         }
 
+        public List<string> GetObjectTypes()
+        {
+           return _objectAccess.GetObjectTypes();        
+        }
+
     }
 }
