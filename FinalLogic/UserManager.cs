@@ -66,6 +66,11 @@ namespace FinalLogic
             
         }
 
+        public List<string> GetUserRoles(UserModel user)
+        {
+            return _userAccess.GetUserRole(user);
+        }
+
         public bool CreateUser(UserModel user)
         {
             return _userAccess.CreateUser(user);

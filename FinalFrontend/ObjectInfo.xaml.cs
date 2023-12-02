@@ -27,6 +27,9 @@ namespace FinalFrontend
         List<string> _objectTypes = new List<string>();
         FullObjectModel _object = new FullObjectModel();
         UserModel _user = new UserModel();
+        bool _isInit = false;
+        string _filePath = string.Empty;
+
         public ObjectInfo()
         {
             InitializeComponent();
@@ -34,6 +37,7 @@ namespace FinalFrontend
         public ObjectInfo(string id, UserModel user)
         {
             InitializeComponent();
+            GetPath();
             GetObjectInfo(id);
             GetObjectComments(id);
             _user = user;
@@ -45,6 +49,12 @@ namespace FinalFrontend
             {
                 UIForGuest();
             }
+            _isInit = true;
+        }
+
+        public void GetPath()
+        {
+            _filePath = _objectManager.GetPath();
         }
 
         public void GetTypes()
@@ -52,7 +62,7 @@ namespace FinalFrontend
             _objectTypes = _objectManager.GetObjectTypes();
             cbxObjectType.Items.Clear();
             cbxObjectType.ItemsSource = _objectTypes;
-            cbxObjectType.SelectedItem = _object.ObjectID;
+            cbxObjectType.SelectedIndex = cbxObjectType.Items.IndexOf(_object.ObjectTypeID);
         }
 
         public void UIForLoggedUser()
@@ -83,6 +93,19 @@ namespace FinalFrontend
             lblMass.Text = _object.Mass;
             tbxObjectDescription.Text = _object.Description;
 
+            if (_filePath != string.Empty)
+            {//ImageViewer1.Source = new BitmapImage(new Uri("Creek.jpg", UriKind.Relative));
+                string img = _filePath + "\\" + _object.Image;
+                try
+                {
+                    imgObjectImage.Source = new BitmapImage(new Uri(img, UriKind.Absolute));
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Image failed to load.", "Image Failure", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+            }
         }
 
         public void GetObjectComments(string id)
@@ -155,6 +178,7 @@ namespace FinalFrontend
 
         private void btnSaveEdit_Click(object sender, RoutedEventArgs e)
         {
+            
 
             FullObjectModel editObject = new FullObjectModel()
             {
@@ -188,6 +212,23 @@ namespace FinalFrontend
             }
             GetObjectInfo(_object.ObjectID);
 
+        }
+
+        private void lblRedshift_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!_isInit)
+            {
+                return;
+            }
+            if (System.Text.RegularExpressions.Regex.IsMatch(lblRedshift.Text, @"^(?!.*-.*-)(?!.*\..*\.)[0-9.-]*$"))
+            {
+                e.Handled = true;
+            }
+            else
+            {
+                MessageBox.Show("Please enter only numbers.");
+                lblRedshift.Text = lblRedshift.Text.Remove(lblRedshift.Text.Length - 1);
+            }
         }
     }
 }

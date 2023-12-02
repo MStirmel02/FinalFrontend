@@ -79,14 +79,14 @@ namespace FinalDataLayer
             RestRequest request = new RestRequest("https://localhost:44333/Object/");
             
             request.AddBody(obj);
-            request.AddQueryParameter("userId", userId);
-            request.AddQueryParameter("action", action);
+            request.AddHeader("userId", userId);
+            request.AddHeader("action", action);
 
             try
             {
                 var response = client.Patch(request);
 
-                if (response.Content == "true")
+                if (response.Content == "1")
                 {
                     return true;
                 }
@@ -118,6 +118,24 @@ namespace FinalDataLayer
             catch (Exception)
             {
                 return new List<string>();
+            }
+        }
+
+        public string GetPath()
+        {
+            RestRequest request = new RestRequest("https://localhost:44333/Object/FilePath");
+
+            string path = string.Empty;
+
+            try
+            {
+                var response = client.Get(request);
+                path = JsonConvert.DeserializeObject<string>(response.Content);
+                return path;
+            }
+            catch (Exception)
+            {
+                return string.Empty;
             }
         }
     }

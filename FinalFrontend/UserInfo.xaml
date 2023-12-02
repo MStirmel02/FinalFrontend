@@ -1,0 +1,41 @@
+﻿<Window x:Class="FinalFrontend.UserInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinalFrontend"
+        mc:Ignorable="d"
+        Title="UserInfo" Height="300" Width="450">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Margin="20 20 20 20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">User Being Edited :</Label>
+
+        <Label x:Name="lblUser" Grid.Row="0" Grid.Column="1" Margin="20 20 20 20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">UserName</Label>
+
+        <Label Grid.Row="1" Margin="20 20 20 20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            User
+        </Label>
+        <Label Grid.Row="2" Margin="20 20 20 20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            Reviewer
+        </Label>
+        <Label Grid.Row="3" Margin="20 20 20 20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            Admin
+        </Label>
+
+        <CheckBox x:Name="cbxUserCheck" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="20" Checked="cbxUserCheck_Checked" Unchecked="cbxUserCheck_Unchecked"></CheckBox>
+
+        <CheckBox x:Name="cbxReviewerCheck" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Margin="20" Checked="cbxReviewerCheck_Checked" Unchecked="cbxReviewerCheck_Unchecked"></CheckBox>
+
+        <CheckBox x:Name="cbxAdminCheck" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Margin="20" Unchecked="cbxAdminCheck_Unchecked" Checked="cbxAdminCheck_Checked"></CheckBox>
+    </Grid>
+</Window>

@@ -19,5 +19,7 @@ namespace FinalDataLayer
         bool EditObjectById(FullObjectModel objModel, string userId, string action);
 
         List<string> GetObjectTypes();
+
+        string GetPath();
     }
 }

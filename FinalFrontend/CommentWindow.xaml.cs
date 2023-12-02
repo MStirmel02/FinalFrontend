@@ -82,6 +82,8 @@ namespace FinalFrontend
             {
                 MessageBox.Show("Comment Failed to Post.", "Failure", MessageBoxButton.OK);
             }
+            this.Close();
+
         }
 
         public void EditComment()

@@ -48,7 +48,6 @@ namespace FinalFrontend
         {
             InitializeComponent();
             _isInit = true;
-
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -69,6 +68,8 @@ namespace FinalFrontend
             FillUserList();
 
             Facts();
+
+            
 
         }
 
@@ -114,6 +115,15 @@ namespace FinalFrontend
             mnuCreateAccount.Visibility = Visibility.Collapsed;
             mnuLogout.Header = _userModel.UserId;
 
+            if (_userModel.Roles.Contains("Reviewer"))
+            {
+                tbmReview.Visibility = Visibility.Visible;
+            }
+            if (_userModel.Roles.Contains("Admin"))
+            {
+                tbmAdmin.Visibility = Visibility.Visible;
+            }
+
         }
 
         private void ChangeMenuForLogOut()
@@ -122,6 +132,8 @@ namespace FinalFrontend
             mnuAccount.Visibility = Visibility.Visible;
             mnuCreateAccount.Visibility = Visibility.Visible;
             mnuLogout.Visibility = Visibility.Collapsed;
+            tbmReview.Visibility = Visibility.Collapsed;
+            tbmAdmin.Visibility = Visibility.Collapsed;
         }
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)
@@ -261,6 +273,24 @@ namespace FinalFrontend
                 var objWindow = new ObjectInfo(obj.ObjectID, _userModel);
                 objWindow.ShowDialog();
             }
+        }
+
+        private void lbxUserList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if(_userModel.UserId != (string) lbxUserList.SelectedItem)
+            {
+                if (lbxUserList.SelectedItem != null)
+                {
+                    var userId = lbxUserList.SelectedItem as string;
+                    var userWindow = new UserInfo(userId, _userModel);
+                    userWindow.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Cannot edit your own roles.", "Nope", MessageBoxButton.OK);
+            }
+            
         }
     }
 }

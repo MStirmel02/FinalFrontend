@@ -18,5 +18,7 @@ namespace FinalLogic
         bool EditObject(FullObjectModel model, string userId, string action);
 
         List<string> GetObjectTypes();
+
+        string GetPath();
     }
 }

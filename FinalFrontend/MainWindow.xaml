@@ -8,9 +8,6 @@
         Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Menu Grid.Row="0" Padding="20px, 0px">
-            <MenuItem x:Name="mnuFile" Header="File">
-                <MenuItem x:Name="mnuExit" Header="Exit"/>
-            </MenuItem>
             <MenuItem x:Name="mnuHelp" Header="Help">
                 <MenuItem x:Name="mnuAbout" Header="About"/>
             </MenuItem>
@@ -54,13 +51,43 @@
                     <TabItem x:Name="tbmMain" Header="Main Page">
                     </TabItem>
                     <TabItem x:Name="tbmObject" Header="Object List">
-                        <DataGrid x:Name="datObjectList" CanUserSortColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" MouseDoubleClick="datObjectList_MouseDoubleClick"/>
+                        <DataGrid x:Name="datObjectList" AutoGenerateColumns="False" CanUserSortColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" MouseDoubleClick="datObjectList_MouseDoubleClick">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding ObjectID}" Header="Object Name">
+
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding ObjectInfoID}" Header="Object Type">
+
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding DateSubmitted}" Header="Date Submitted">
+
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding UserSubmitted}" Header="User Submitted">
+
+                                </DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
                     </TabItem>
-                    <TabItem x:Name="tbmReview" Header="Manage Requests">
-                        <DataGrid x:Name="datRequestList" CanUserSortColumns="True"/>
+                    <TabItem x:Name="tbmReview" Header="Manage Requests" Visibility="Collapsed">
+                        <DataGrid x:Name="datRequestList" AutoGenerateColumns="False"  CanUserSortColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding ObjectID}" Header="Object Name">
+
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding ObjectInfoID}" Header="Object Type">
+
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding DateSubmitted}" Header="Date Submitted">
+
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding UserSubmitted}" Header="User Submitted">
+
+                                </DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
                     </TabItem>
-                    <TabItem x:Name="tbmAdmin" Header="Manage Users">
-                        <ListBox x:Name="lbxUserList"></ListBox>
+                    <TabItem x:Name="tbmAdmin" Visibility="Collapsed" Header="Manage Users">
+                        <ListBox x:Name="lbxUserList" MouseDoubleClick="lbxUserList_MouseDoubleClick"></ListBox>
                     </TabItem>
                 </TabControl> 
             </StackPanel>

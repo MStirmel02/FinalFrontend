@@ -75,5 +75,9 @@ namespace FinalLogic
            return _objectAccess.GetObjectTypes();        
         }
 
+        public string GetPath()
+        {
+            return _objectAccess.GetPath();
+        }
     }
 }

@@ -96,7 +96,7 @@ namespace FinalDataLayer
             request.AddHeader("roleId", roleId);
             request.AddHeader("userId", userId);
 
-            var response = client.Post(request);
+            var response = client.Delete(request);
 
             if (response.Content == "true")
             {
