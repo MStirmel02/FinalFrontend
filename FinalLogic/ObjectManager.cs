@@ -79,5 +79,17 @@ namespace FinalLogic
         {
             return _objectAccess.GetPath();
         }
+
+        public int PostObject(FullObjectModel objModel)
+        {
+            try
+            {
+                return _objectAccess.PostObject(objModel);
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
     }
 }

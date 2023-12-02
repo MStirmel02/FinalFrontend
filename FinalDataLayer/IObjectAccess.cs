@@ -21,5 +21,7 @@ namespace FinalDataLayer
         List<string> GetObjectTypes();
 
         string GetPath();
+
+        int PostObject(FullObjectModel objModel);
     }
 }

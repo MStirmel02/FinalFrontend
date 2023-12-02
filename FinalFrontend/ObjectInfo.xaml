@@ -63,9 +63,9 @@
 
                 <TextBox x:Name="lblRedshift" IsReadOnly="True" BorderThickness="0" Margin="13 0 0 0" Grid.Row="5" FontSize="11" ToolTip="The Redshift value" TextChanged="lblRedshift_TextChanged">Redshift</TextBox>
 
-                <TextBox x:Name="lblApparentMagnitude" IsReadOnly="True" BorderThickness="0" Margin="13 0 0 0" Grid.Row="6" FontSize="11" ToolTip="The Apparent Magnitude">Apparent Magnitude</TextBox>
+                <TextBox x:Name="lblApparentMagnitude" IsReadOnly="True" BorderThickness="0" Margin="13 0 0 0" Grid.Row="6" FontSize="11" ToolTip="The Apparent Magnitude" TextChanged="lblApparentMagnitude_TextChanged">Apparent Magnitude</TextBox>
 
-                <TextBox x:Name="lblAbsoluteMagnitude" IsReadOnly="True" BorderThickness="0" Margin="13 0 0 0" Grid.Row="7" FontSize="11" ToolTip="The Absolute Magnitude">Absolute Magnitude</TextBox>
+                <TextBox x:Name="lblAbsoluteMagnitude" IsReadOnly="True" BorderThickness="0" Margin="13 0 0 0" Grid.Row="7" FontSize="11" ToolTip="The Absolute Magnitude" TextChanged="lblAbsoluteMagnitude_TextChanged">Absolute Magnitude</TextBox>
 
                 <TextBox x:Name="lblMass" IsReadOnly="True" BorderThickness="0" Margin="13 0 0 0" Grid.Row="8" FontSize="11" ToolTip="The Mass">Mass</TextBox>
 
@@ -79,9 +79,7 @@
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
 
-                <TextBox x:Name="tbxObjectDescription" Grid.Row="0" Grid.Column="0" Margin="25 10 25 0" TextWrapping="WrapWithOverflow" IsReadOnly="True">
-                Preliminary test information Preliminary test information Preliminary test information 
-             Preliminary test information Preliminary test information Preliminary test information Preliminary test information Preliminary test information</TextBox>
+                <TextBox x:Name="tbxObjectDescription" Grid.Row="0" Grid.Column="0" Margin="10 10 10 0" TextWrapping="WrapWithOverflow" IsReadOnly="True">Description</TextBox>
 
                 <!-- Buttons -->
                 <Grid Grid.Row="1">
@@ -93,13 +91,19 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <Button x:Name="btnEditObject" Grid.Column="4" Margin="10 10 10 10" Click="btnEditObject_Click">Edit Object</Button>
+                    <Button x:Name="btnPostObject" Grid.Column="4" Margin="10 10 10 10" Visibility="Collapsed" Click="btnPostObject_Click">Post Object</Button>
+                    
+                    <Button x:Name="btnEditObject" Grid.Column="4" Margin="10 10 10 10" Visibility="Collapsed" Click="btnEditObject_Click">Edit Object</Button>
 
                     <Button x:Name="btnSaveEdit" Grid.Column="4" Margin="10 10 10 10" Visibility="Collapsed" Click="btnSaveEdit_Click">Save</Button>
 
-                    <Button x:Name="btnCancelEdit" Grid.Column="3" Margin="10 10 10 10" Visibility="Collapsed" Click="btnCancelEdit_Click">Cancel Edits</Button>
+                    <Button x:Name="btnAcceptObject" Grid.Column="2" Margin="10 10 10 10" Visibility="Collapsed" Click="btnAcceptObject_Click" >Accept Object</Button>
+                    
+                    <Button x:Name="btnCancelEdit" Grid.Column="3" Margin="10 10 10 10" Visibility="Collapsed" Click="btnCancelEdit_Click">Cancel</Button>
 
-                    <Button x:Name="btnPostComment" Grid.Column="0" Margin="10 10 10 10" Click="btnPostComment_Click">Post Comment</Button>
+                    <Button x:Name="btnPostComment" Grid.Column="0" Margin="10 10 10 10" Visibility="Collapsed" Click="btnPostComment_Click">Post Comment</Button>
+
+                    <Button x:Name="btnUploadImage" Grid.Column="0" Margin="10 10 10 10" Click="btnUploadImage_Click" Visibility="Collapsed">Upload Image</Button>
                 </Grid>
                 
             </Grid>

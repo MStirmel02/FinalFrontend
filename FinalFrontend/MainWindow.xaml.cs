@@ -103,6 +103,10 @@ namespace FinalFrontend
                 ChangeMenuForLogOut();
             }
 
+            FillObjectList();
+            FillRequestList();
+            FillUserList();
+            Facts();
 
 
         }
@@ -111,6 +115,7 @@ namespace FinalFrontend
         private void ChangeMenuForLogin()
         {
             mnuAccount.Visibility = Visibility.Collapsed;
+            mnuRequestObject.Visibility = Visibility.Visible;
             mnuLogout.Visibility = Visibility.Visible;
             mnuCreateAccount.Visibility = Visibility.Collapsed;
             mnuLogout.Header = _userModel.UserId;
@@ -132,8 +137,11 @@ namespace FinalFrontend
             mnuAccount.Visibility = Visibility.Visible;
             mnuCreateAccount.Visibility = Visibility.Visible;
             mnuLogout.Visibility = Visibility.Collapsed;
+            mnuRequestObject.Visibility = Visibility.Collapsed;
             tbmReview.Visibility = Visibility.Collapsed;
             tbmAdmin.Visibility = Visibility.Collapsed;
+            tbmObject.Focus();
+            
         }
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)
@@ -233,20 +241,20 @@ namespace FinalFrontend
                 FillUserList();
                 return;
             }
-            // This doesn't actually work as I thought it would. Oops
-            if (tbmAdmin.Visibility == Visibility.Visible)
+
+            if (tbmAdmin.IsSelected)
             {
                 _userListQueried = _userList.Where(file => (file.ToUpperInvariant().Contains(tbxSearch.Text.ToUpperInvariant()))).ToList<string>();
                 FillUserList();
             }
 
-            if (tbmReview.Visibility == Visibility.Visible)
+            if (tbmReview.IsSelected)
             {
                 _requestListQueried = _requestList.Where(file => (file.ObjectID.ToUpperInvariant().Contains(tbxSearch.Text.ToUpperInvariant()))).ToList<ObjectModel>();
                 FillRequestList();
             }
 
-            if (tbmObject.Visibility == Visibility.Visible)
+            if (tbmObject.IsSelected)
             {
                 _objectListQueried = _objectList.Where(file => (file.ObjectID.ToUpperInvariant().Contains(tbxSearch.Text.ToUpperInvariant()))).ToList<ObjectModel>();
                 FillObjectList();
@@ -291,6 +299,31 @@ namespace FinalFrontend
                 MessageBox.Show("Cannot edit your own roles.", "Nope", MessageBoxButton.OK);
             }
             
+        }
+
+        private void mnuRequestObject_Click(object sender, RoutedEventArgs e)
+        {
+            var objectWindow = new ObjectInfo(_userModel);
+            objectWindow.ShowDialog();
+            _requestList = _objectManager.GetRequests();
+            _requestListQueried = _requestList;
+            FillRequestList();
+        }
+
+        private void datRequestList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if( datRequestList.SelectedItem != null)
+            {
+                var obj = datRequestList.SelectedItem as ObjectModel;
+                var objWindow = new ObjectInfo(obj.ObjectID, _userModel);
+                objWindow.ShowDialog();
+            }
+            _objectList = _objectManager.GetObjects();
+            _requestList = _objectManager.GetRequests();
+            _objectListQueried = _objectList;
+            _requestListQueried = _requestList;
+            FillRequestList();
+            FillObjectList();
         }
     }
 }

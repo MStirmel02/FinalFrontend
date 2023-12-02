@@ -55,7 +55,7 @@ namespace FinalDataLayer
 
         public bool CreateUser(UserModel user)
         {
-            RestRequest request = new RestRequest("https://localhost:44333/User");
+            RestRequest request = new RestRequest("https://localhost:44333/User/CreateUser");
             request.AddBody(user);
 
             var response = client.Post(request);

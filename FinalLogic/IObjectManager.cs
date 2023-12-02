@@ -20,5 +20,7 @@ namespace FinalLogic
         List<string> GetObjectTypes();
 
         string GetPath();
+
+        int PostObject(FullObjectModel objModel);
     }
 }

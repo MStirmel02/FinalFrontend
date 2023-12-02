@@ -138,5 +138,23 @@ namespace FinalDataLayer
                 return string.Empty;
             }
         }
+
+        public int PostObject(FullObjectModel objModel)
+        {
+            
+            RestRequest request = new RestRequest("https://localhost:44333/Object");
+            request.AddBody(objModel);
+
+            try
+            {
+                var response = client.Post(request);
+                int result = JsonConvert.DeserializeObject<int>(response.Content);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
